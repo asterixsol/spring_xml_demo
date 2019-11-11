@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<bean name="jdbcRepository" class="com.lti.repository.JDBCCustomerRepositoryImpl">
+</bean>
+
+<bean name="genericRepository" class="com.lti.repository.CustomerRepositoryImpl">
+</bean>
+
+<bean name="service1" class="com.lti.service.CustomerServiceImpl">
+<constructor-arg><ref bean="jdbcRepository"/></constructor-arg>
+</bean>
+
+<bean name="service2" class="com.lti.service.CustomerServiceImpl">
+<constructor-arg><ref bean="genericRepository"/></constructor-arg>
+</bean>
+
+
+
+</beans>
